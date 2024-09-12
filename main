@@ -22,17 +22,15 @@ public class Main {
             System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
-
                     System.out.print("Nome: ");
                     String nome = scanner.nextLine();
 
                     System.out.print("Número de telefone: ");
-                    String telefone = scanner.nextInt();
-                    scanner.nextLine(); 
+                    String telefone = scanner.nextLine();
 
                     System.out.print("Endereço: ");
                     String endereco = scanner.nextLine();
@@ -42,18 +40,16 @@ public class Main {
                     break;
 
                 case 2:
-
                     System.out.println("\nClientes registrados:");
                     gerenciamentoClientes.exibirClientes();
                     break;
 
                 case 3:
-
                     System.out.println("Escolha um cliente (digite o nome):");
-                    gerenciamentoClientes.exibirClientes(); 
+                    gerenciamentoClientes.exibirClientes(); // Exibir clientes para seleção
                     String clienteNome = scanner.nextLine();
 
-                    // Encontrar o cliente correspondente
+
                     Cliente clienteSelecionado = gerenciamentoClientes.encontrarCliente(clienteNome);
 
                     if (clienteSelecionado == null) {
