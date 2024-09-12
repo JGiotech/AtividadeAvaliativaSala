@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class Pedido {
     private Cliente cliente;
     private ArrayList<ItemMenu> itens;
@@ -18,7 +20,6 @@ class Pedido {
         total += item.getPreco();
     }
 
- 
     public void calcularTotal() {
         total = 0.0;
         for (ItemMenu item : itens) {
@@ -26,11 +27,9 @@ class Pedido {
         }
     }
 
-
     public void atualizarStatus(String novoStatus) {
         this.status = novoStatus;
     }
-
 
     public String verificarStatus() {
         return this.status;
