@@ -4,7 +4,7 @@ public class GerenciamentoDeClientes {
     private ArrayList<Cliente> clientes = new ArrayList<>();
 
 
-    public void registrarCliente(String nome, int telefone, String endereco) {
+    public void registrarCliente(String nome, String telefone, String endereco) {
         Cliente cliente = new Cliente(nome, telefone, endereco);
         clientes.add(cliente);
     }
@@ -27,3 +27,5 @@ public class GerenciamentoDeClientes {
             }
         }
         return null;
+    }
+}
