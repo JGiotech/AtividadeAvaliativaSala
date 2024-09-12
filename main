@@ -8,7 +8,7 @@ public class Main {
         ArrayList<ItemMenu> menuItens = new ArrayList<>();
         int opcao;
 
-        // Adiciona itens ao menu
+
         menuItens.add(new ItemMenu("Pizza Margherita", 25.00, "Pizza"));
         menuItens.add(new ItemMenu("Hamburguer", 15.00, "Lanche"));
         menuItens.add(new ItemMenu("Suco de Laranja", 8.00, "Bebida"));
@@ -22,7 +22,7 @@ public class Main {
             System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer
+            scanner.nextLine(); 
 
             switch (opcao) {
                 case 1:
@@ -50,7 +50,7 @@ public class Main {
                 case 3:
 
                     System.out.println("Escolha um cliente (digite o nome):");
-                    gerenciamentoClientes.exibirClientes(); // Exibir clientes para seleção
+                    gerenciamentoClientes.exibirClientes(); 
                     String clienteNome = scanner.nextLine();
 
                     // Encontrar o cliente correspondente
