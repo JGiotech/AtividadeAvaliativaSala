@@ -1,1 +1,105 @@
+import java.util.ArrayList;
+import java.util.Scanner;
 
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        GerenciamentoDeClientes gerenciamentoClientes = new GerenciamentoDeClientes();
+        ArrayList<ItemMenu> menuItens = new ArrayList<>();
+        int opcao;
+
+        // Adiciona itens ao menu
+        menuItens.add(new ItemMenu("Pizza Margherita", 25.00, "Pizza"));
+        menuItens.add(new ItemMenu("Hamburguer", 15.00, "Lanche"));
+        menuItens.add(new ItemMenu("Suco de Laranja", 8.00, "Bebida"));
+        menuItens.add(new ItemMenu("Crepe", 12.00, "Sobremesa"));
+
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Registrar cliente");
+            System.out.println("2. Exibir clientes");
+            System.out.println("3. Criar pedido");
+            System.out.println("4. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer
+
+            switch (opcao) {
+                case 1:
+
+                    System.out.print("Nome: ");
+                    String nome = scanner.nextLine();
+
+                    System.out.print("Número de telefone: ");
+                    String telefone = scanner.nextInt();
+                    scanner.nextLine(); 
+
+                    System.out.print("Endereço: ");
+                    String endereco = scanner.nextLine();
+
+                    gerenciamentoClientes.registrarCliente(nome, telefone, endereco);
+                    System.out.println("Cliente registrado com sucesso!");
+                    break;
+
+                case 2:
+
+                    System.out.println("\nClientes registrados:");
+                    gerenciamentoClientes.exibirClientes();
+                    break;
+
+                case 3:
+
+                    System.out.println("Escolha um cliente (digite o nome):");
+                    gerenciamentoClientes.exibirClientes(); // Exibir clientes para seleção
+                    String clienteNome = scanner.nextLine();
+
+                    // Encontrar o cliente correspondente
+                    Cliente clienteSelecionado = gerenciamentoClientes.encontrarCliente(clienteNome);
+
+                    if (clienteSelecionado == null) {
+                        System.out.println("Cliente não encontrado.");
+                        break;
+                    }
+
+                    Pedido pedido = new Pedido(clienteSelecionado);
+
+                    // Adicionar itens ao pedido
+                    System.out.println("Escolha um item do menu (digite o nome):");
+                    for (ItemMenu item : menuItens) {
+                        System.out.println("- " + item.getNomePedido() + ": R$ " + item.getPreco());
+                    }
+
+                    String itemEscolhido = scanner.nextLine();
+                    ItemMenu itemSelecionado = null;
+                    for (ItemMenu item : menuItens) {
+                        if (item.getNomePedido().equals(itemEscolhido)) {
+                            itemSelecionado = item;
+                            break;
+                        }
+                    }
+
+                    if (itemSelecionado == null) {
+                        System.out.println("Item não encontrado.");
+                        break;
+                    }
+
+                    pedido.adicionarItem(itemSelecionado);
+                    pedido.calcularTotal();
+                    System.out.println("Pedido criado com sucesso!");
+                    System.out.println(pedido);
+                    break;
+
+                case 4:
+                    // Sair
+                    System.out.println("Saindo...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                    break;
+            }
+        } while (opcao != 4);
+
+        scanner.close();
+    }
+}
