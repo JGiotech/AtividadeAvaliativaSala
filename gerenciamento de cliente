@@ -1,1 +1,29 @@
+import java.util.ArrayList;
 
+public class GerenciamentoDeClientes {
+    private ArrayList<Cliente> clientes = new ArrayList<>();
+
+
+    public void registrarCliente(String nome, int telefone, String endereco) {
+        Cliente cliente = new Cliente(nome, telefone, endereco);
+        clientes.add(cliente);
+    }
+
+ 
+    public void exibirClientes() {
+        if (clientes.isEmpty()) {
+            System.out.println("Nenhum cliente registrado.");
+        } else {
+            for (Cliente cliente : clientes) {
+                System.out.println(cliente);
+            }
+        }
+    }
+
+    public Cliente encontrarCliente(String nome) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getNome().equals(nome)) {
+                return cliente;
+            }
+        }
+        return null;
