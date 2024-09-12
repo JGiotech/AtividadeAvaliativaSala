@@ -3,16 +3,14 @@ public class ItemMenu {
     private double preco;
     private String categoria;
 
-
     public ItemMenu(String nomePedido, double preco, String categoria) {
         this.nomePedido = nomePedido;
         this.preco = preco;
         this.categoria = categoria;
     }
 
-
     public String getNomePedido() {
-        return nomePedido;
+        return this.nomePedido;
     }
 
     public void setNomePedido(String nomePedido) {
@@ -20,7 +18,7 @@ public class ItemMenu {
     }
 
     public double getPreco() {
-        return preco;
+        return this.preco;
     }
 
     public void setPreco(double preco) {
@@ -28,17 +26,16 @@ public class ItemMenu {
     }
 
     public String getCategoria() {
-        return categoria;
+        return this.categoria;
     }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-
     public void mostrarDetalhes() {
-        System.out.println("Nome do Pedido: " + nomePedido);
-        System.out.println("Preço: R$ " + preco);
-        System.out.println("Categoria: " + categoria);
+        System.out.println("Nome do Pedido: " + this.nomePedido);
+        System.out.println("Preço: R$ " + this.preco);
+        System.out.println("Categoria: " + this.categoria);
     }
 }
