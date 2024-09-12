@@ -9,7 +9,7 @@ public class GerenciamentoDeClientes {
         clientes.add(cliente);
     }
 
- 
+
     public void exibirClientes() {
         if (clientes.isEmpty()) {
             System.out.println("Nenhum cliente registrado.");
